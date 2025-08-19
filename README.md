@@ -1,69 +1,87 @@
-# React + TypeScript + Vite
+# Flow Builder
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A sleek and minimal drag-and-drop flow editor built with [React Flow](https://reactflow.dev/), [shadcn/ui](https://ui.shadcn.com/), and [Tailwind CSS](https://tailwindcss.com/).  
+This tool allows you to create, connect, and configure nodes in an intuitive canvas environment. It includes a customizable dock for adding elements, a preview panel, zoom controls, and an edit drawer for node configuration.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- Drag-and-drop node editor powered by React Flow  
+- Custom node components with headers, images, and descriptions  
+- Dock with quick access to add nodes and control the viewport scale  
+- Edit drawer to update node label, description, color, and image URL  
+- Zoom controls with slider, plus preview panel in the bottom-right corner  
+- Validation when saving: ensures only one entry node without incoming edges  
+- Integrated with [Sonner](https://sonner.emilkowal.ski/) for clean error and success toasts  
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Prerequisites
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+Before you begin, ensure you have the following installed:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- [Node.js](https://nodejs.org/) (version 18 or later recommended)  
+- [npm](https://www.npmjs.com/) or [pnpm](https://pnpm.io/)  
+
+---
+
+## Installation
+
+Clone the repository and install dependencies:
+
+```bash
+git clone https://github.com/your-username/flow-builder.git
+cd flow-builder
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+If you prefer pnpm:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+pnpm install
 ```
+
+---
+
+## Development
+
+Run the project in development mode:
+
+```bash
+npm run dev
+```
+
+Then open http://localhost:5173 (or the port shown in your terminal).
+
+---
+
+## Build
+
+To create an optimized production build:
+
+```bash
+npm run build
+```
+
+You can preview the build with:
+
+```bash
+npm run preview
+```
+---
+
+## Saving and Validation
+
+When clicking the Save button in the top-right corner:
+
+- If there are multiple nodes and more than one node has no incoming edges (empty target handle), an error is shown.  
+- Otherwise, the flow is saved and logged to the console.  
+
+---
+
+## Customization
+
+- Update `TextNode.tsx` to change the appearance of message nodes.  
+- Adjust `FlowDock.tsx` to add new node types or modify the dock layout.  
+- Modify `NodeDrawer.tsx` to add more editable fields for nodes.  
