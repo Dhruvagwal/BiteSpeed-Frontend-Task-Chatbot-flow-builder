@@ -31,7 +31,7 @@ Before you begin, ensure you have the following installed:
 Clone the repository and install dependencies:
 
 ```bash
-git clone https://github.com/your-username/flow-builder.git
+git clone https://github.com/Dhruvagwal/BiteSpeed-Frontend-Task-Chatbot-flow-builder
 cd flow-builder
 npm install
 ```
