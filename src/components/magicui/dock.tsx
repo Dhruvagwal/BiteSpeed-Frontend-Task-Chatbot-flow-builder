@@ -3,13 +3,13 @@
 import { cva, type VariantProps } from "class-variance-authority";
 import {
   motion,
-  MotionProps,
+  type MotionProps,
   MotionValue,
   useMotionValue,
   useSpring,
   useTransform,
 } from "motion/react";
-import React, { PropsWithChildren, useRef } from "react";
+import React, { type PropsWithChildren, useRef } from "react";
 
 import { cn } from "@/lib/utils";
 

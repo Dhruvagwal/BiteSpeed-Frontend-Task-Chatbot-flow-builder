@@ -9,7 +9,7 @@ import SaveButton from "./ui/SaveButton";
 import FlowDock from "./ui/FlowDock";
 import NodeDrawer from "./ui/NodeDrawer";
 
-import TextNode, { type TextNodeData } from "../nodes/TextNode";
+import TextNode from "../nodes/TextNode";
 
 const nodeTypes = { text: TextNode };
 
@@ -18,7 +18,6 @@ export default function InnerFlow() {
     nodes,
     edges,
     setNodes,
-    setEdges,
     onNodesChange,
     onEdgesChange,
     onConnect,

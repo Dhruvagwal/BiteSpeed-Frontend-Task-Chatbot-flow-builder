@@ -9,7 +9,6 @@ export default function FlowDock({
   zoomOut,
   scale,
   setScale,
-  rf,
 }: any) {
   return (
     <div className=" absolute bottom-0 flex justify-center items-center w-full p-2">

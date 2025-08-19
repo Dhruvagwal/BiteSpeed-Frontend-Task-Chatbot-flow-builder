@@ -1,18 +1,16 @@
 import { useCallback } from "react";
 import { addEdge, useEdgesState, useNodesState, type Node, type Edge, type Connection } from "reactflow";
-import type { TextNodeData } from "@/components/nodes/TextNode";
-
 export function useFlowNodes() {
-  const [nodes, setNodes, onNodesChange] = useNodesState<Node<TextNodeData>>([]);
+  const [nodes, setNodes, onNodesChange] = useNodesState([]);
   const [edges, setEdges, onEdgesChange] = useEdgesState<Edge>([]);
 
   const addNode = () => {
     const position = { x: 200, y: 100 };
-    const newNode: Node<TextNodeData> = {
+    const newNode: Node = {
       id: Date.now().toString(),
       type: "text",
       position,
-      data: { label: "New message", description: "", color: "#C7F2E3", image: "" },
+      data: { label: "New message", description: "", color: "#C7F2E3", imageUrl: "" },
     };
     setNodes((nds) => nds.concat(newNode));
   };
